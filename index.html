@@ -17,7 +17,8 @@
     
 <h1>What is your favorite place to travel?</h1> 
 <p>I am building a directory of the sweetest travel destinations.</p>  
-    
+   
+    <script>
     'use strict';
 
 var Analytics = require('@segment/analytics.js-core').constructor;
@@ -643,8 +644,8 @@ describe('Mixpanel', function() {
   });
 });
     
-    
-    
+    </script>
+    <script>
 <form name="travel" onsubmit="identify(event)">
      What is your favorite travel destination?
     <input name="destination" required="" size="81" type="text"/> 
@@ -682,10 +683,6 @@ describe('Mixpanel', function() {
         analytics.track('destination submitted', user, function() {
             window.location.href = "";
         });
-          analytics.identify({
-  email: 'hello@example.com',
-  name: 'Ian Taylor'
-});
 
       }
 </script>
