@@ -53,6 +53,11 @@
         analytics.track('destination submitted', user, function() {
             window.location.href = "";
         });
+          analytics.identify({
+  email: 'hello@example.com',
+  name: 'Ian Taylor'
+});
+
       }
 </script>
 
