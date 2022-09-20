@@ -645,8 +645,9 @@ describe('Mixpanel', function() {
 });
     
     </script>
-    <script>
-<form name="travel" onsubmit="identify(event)">
+    
+    <form> 
+        name="travel" onsubmit="identify(event)">
      What is your favorite travel destination?
     <input name="destination" required="" size="81" type="text"/> 
     <br><br><br> 
@@ -661,6 +662,7 @@ describe('Mixpanel', function() {
     <br><br>
     <input name="submit" type="submit" value="submit"/>
 </form> 
+
 
         <script type="text/javascript">
       function identify(e){
