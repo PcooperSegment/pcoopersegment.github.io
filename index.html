@@ -53,7 +53,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     });
 </script>
 
-
+<!-- Script for Reproducing the Issue -->
+<script>
+function sendTestEvent() {
+    // Send event through Segment
+    analytics.track('test_event');
+    
+    // Push the same event directly to dataLayer for GTM
+    window.dataLayer.push({
+        'event': 'test_event'
+    });
+}
+</script>
 
 </head> 
     
