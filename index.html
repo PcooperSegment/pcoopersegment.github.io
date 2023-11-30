@@ -68,25 +68,44 @@ function sendTestEvent() {
 }
 </script>
 
+
 <!-- Bing Ads UET Tag -->
-    <script>
-    (function(w,d,t,r,u)
-    {
-        var f,n,i;
-        w[u]=w[u]||[],f=function()
-        {
-            var o={ti:"211035943", enableAutoSpaTracking: true};
-            o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")
-        },
-        n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function()
-        {
-            var s=this.readyState;
-            s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)
-        },
-        i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)
-    })
-    (window,document,"script","//bat.bing.com/bat.js","uetq");
+<script>
+(function(w,d,t,r,u) {
+    var f, n, i;
+    w[u] = w[u] || [], f = function() {
+        var o = { ti: "211035943", enableAutoSpaTracking: true };
+        o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad");
+        
+        // Push the purchase event with variable revenue
+        w[u].push({
+            'ec': 'purchase', // Event category
+            'ea': 'completed', // Event action
+            'el': 'Order Completed', // Event label
+            'ev': 100, // Event value (this should be dynamic based on the actual purchase total)
+            'gv': 100, // Revenue (this should be dynamic based on the actual purchase total)
+            'currency': 'USD', // Currency Code
+            'ti': '123456789', // Transaction ID - should be dynamic and unique per transaction
+            'items': [ // List of purchased items
+                {
+                    'id': 'P12345', // Product ID or SKU
+                    'name': 'Product Name', // Product name
+                    'category': 'Product Category', // Product category
+                    'price': 50, // Product price
+                    'quantity': 2 // Quantity
+                },
+                // ... other purchased items if applicable
+            ]
+        });
+    },
+    n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function() {
+        var s = this.readyState;
+        s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
+    },
+    i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
+})(window, document, "script", "//bat.bing.com/bat.js", "uetq");
 </script>
+
 
 </head> 
     
